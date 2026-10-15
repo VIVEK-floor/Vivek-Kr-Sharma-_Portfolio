@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 104" role="img" aria-labelledby="title desc">
+<title id="title">Mistvale Tea Co.</title>
+<desc id="desc">Mistvale Tea Co. wordmark with a refined hill and tea-leaf emblem.</desc>
+
+<g fill="none" stroke="#1f3d2b" stroke-linecap="round" stroke-linejoin="round">
+  <!-- distant hill -->
+  <path d="M12 71 C39 57 55 43 77 28 C94 46 105 59 127 71" stroke-width="5"/>
+  <!-- tea leaf -->
+  <path d="M77 28 C61 39 54 53 57 68 C71 67 84 59 91 47 C96 38 91 31 77 28 Z"
+        fill="#4f7942" stroke-width="4"/>
+  <path d="M59 67 C69 57 77 47 86 36" stroke-width="3"/>
+  <!-- small hill baseline -->
+  <path d="M18 76 C45 69 79 68 112 76" stroke-width="4"/>
+</g>
+
+<text x="145" y="57"
+      font-family="Georgia, 'Times New Roman', serif"
+      font-size="43"
+      font-weight="700"
+      fill="#1f3d2b">Mistvale</text>
+
+<text x="148" y="84"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="12"
+      font-weight="700"
+      letter-spacing="4"
+      fill="#4f7942">TEA CO.</text>
+</svg>

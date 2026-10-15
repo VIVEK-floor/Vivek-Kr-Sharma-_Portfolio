@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; background: #0f1228; }
+body { font-family: Inter, sans-serif; background: #0f1228; color: #cfd4ee; }
+:focus-visible { outline: 2px solid #5eead4; outline-offset: 3px; }
+
+@layer components {
+  .wrap { @apply max-w-6xl mx-auto px-5 md:px-8; }
+  .sec { @apply py-16 md:py-24; }
+  .h2 { @apply font-display font-extrabold text-3xl md:text-5xl text-white mb-10 tracking-tight; }
+  .panel { @apply rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:p-8; }
+  .chip { @apply inline-block rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-sm text-slate-200; }
+  .btn { @apply inline-flex items-center justify-center rounded-full bg-mint px-6 py-3 font-semibold text-ink transition hover:bg-white; }
+  .field { @apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-500 focus:border-mint focus:outline-none; }
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.rise { opacity: 0; animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; opacity: 1; }
+  html { scroll-behavior: auto; }
+}
+
+body {
+  counter-reset: sec;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+section .h2 { counter-increment: sec; }
+section .h2::before {
+  content: "0" counter(sec) " — SECTION";
+  display: block; margin-bottom: .6rem;
+  font: 600 .75rem Inter, sans-serif; letter-spacing: .22em; color: #5eead4;
+}
+.panel { position: relative; overflow: hidden; transition: border-color .3s, background .3s, transform .3s; }
+.panel::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(380px circle at var(--x, 50%) var(--y, 50%), rgba(94, 234, 212, .13), transparent 60%);
+}
+.panel:hover::before { opacity: 1; }
+.chip { transition: border-color .2s, color .2s; }
+.chip:hover { border-color: #5eead4; color: #fff; }
+.btn-ghost { @apply inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-mint hover:text-mint; }
+
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+@keyframes bob { 50% { transform: translateY(-8px); } }
+.bob { animation: bob 5s ease-in-out infinite; }
+@keyframes ping2 { 75%, 100% { transform: scale(2.2); opacity: 0; } }
+.ping2 { animation: ping2 1.8s cubic-bezier(0,0,.2,1) infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee, .bob, .ping2 { animation: none; }
+}
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes spin-back { to { transform: rotate(-360deg); } }
+.orbit { animation: spin-slow 40s linear infinite; }
+.orbit > span > span { animation: spin-back 40s linear infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.caret { animation: blink 1s steps(1) infinite; }
+@media (prefers-reduced-motion: reduce) { .orbit, .orbit > span > span, .caret { animation: none; } }
